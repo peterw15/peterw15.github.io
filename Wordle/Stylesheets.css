@@ -1,0 +1,146 @@
+body {
+    background-color: rgb(75, 75, 75);
+    min-width: 100px;
+    height: auto;
+}
+
+/* word guess */
+
+.entryRow {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 50px;
+    text-align: center;
+    border: black solid 1px;
+    display: block;
+}
+
+
+input[type="text"] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px;
+    height: 55px;
+    width: 55px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    background-color: rgb(92, 92, 92);
+    color: white;
+    font-weight: bold;
+    border: black solid 5px;
+}
+
+/* buttons */
+
+.btnContainer {}
+
+.submitBtn {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    width: 150px;
+    font-size: 250%;
+    text-align: center;
+    border-radius: 25px;
+    border: black solid 3px;
+    font-weight: bold;
+    transition: 0.25s ease-in-out;
+    margin-bottom: 15px;
+}
+
+.submitBtn:hover {
+    background-color: rgb(62, 143, 255);
+    font-size: 255%;
+    width: 155px;
+    font-weight: bolder;
+}
+
+.newWordBtn {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 150%;
+    color: rgb(0, 0, 0);
+    width: 150px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    border: black solid 3px;
+    transition: 0.25s ease-in-out;
+    position: fixed;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    font-weight: bold;
+}
+
+.newWordBtn:hover {
+    background-color: rgb(255, 200, 0);
+    border: rgb(0, 0, 0) solid 3px;
+    color: rgb(0, 0, 0);
+    font-size: 153%;
+}
+
+/* header section */
+.headerContainer {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    padding-bottom: 125px;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+/* middle section */
+.middleContainer {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    
+    font-size: 165%;
+    font-weight: 500;
+    color: white;
+}
+
+
+
+/* keyboard */
+
+.Keyboard {
+    position: fixed;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 30px;
+    border: 3px solid black;
+    margin-top: 5px;
+}
+
+.Row {
+    display: flex;
+    justify-content: center;
+}
+
+.Key {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 150%;
+    width: 70px;
+    height: 60px;
+    background-color: rgb(63, 63, 63);
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 2px;
+    transition: 0.25s ease-in-out;
+    color: rgb(227, 227, 227);
+}
+
+.Key:hover {
+    background-color: rgb(87, 87, 87);
+}
