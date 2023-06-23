@@ -12,9 +12,10 @@ function loadPage() {
     lives = 5;
     document.getElementById("numOfGuess").innerHTML = "Lives: " + lives;
     document.getElementById("entryBox").style.border = "black solid 5px";
-    // for (let i = 0; i < 5; i++) { 
-    //     guesses[i] = ""; 
-    //     document.getElementById("guess" + lives.toString()).innerHTML = "";
+
+    // for (var i = 0; i < 5; i++) { 
+    //     currGuess = document.getElementById("guess" + i.toString())
+    //     currGuess.innerHTML = "";
     // }
 
     document.getElementById("guess1").innerHTML = "";
@@ -27,6 +28,12 @@ function loadPage() {
     document.getElementById("headerContainer").innerHTML = "Guess The Five Letter Word!";
     document.getElementById("headerContainer").style.color = "white";
     document.getElementById("Keyboard").style.backgroundColor = ""; 
+
+    const ele = document.getElementsByClassName("Key");
+    for(let i = 0; i < ele.length; i++) {
+        ele[i].style.backgroundColor = "rgb(63, 63, 63)";
+        ele[i].style.color = "rgb(227, 227, 227)";
+    }
 
     loadWord();
 
@@ -70,18 +77,7 @@ function submitGuess() {
     if ((currentGuess.length == 5) && stillPlaying) {
         guesses[lives] = currentGuess;
         
-        let currGuess = document.getElementById("guess" + lives.toString());
-        currGuess.innerHTML = currentGuess.toUpperCase();
-        let newStr = "";
-        for(let i = 0; i < currGuess.innerHTML.length; i++) {
-            if (currGuess.innerHTML.charAt(i) == currentWord.charAt(i)) {
-                newStr += '<span style="color: lightGreen">' + currGuess.innerHTML.charAt(i) + '</span>';
-            }
-            else {
-                newStr += currGuess.innerHTML.charAt(i);
-            }
-        } 
-        currGuess.innerHTML = newStr
+       checkLetters();
 
         if (currentGuess == currentWord) {
             document.getElementById("entryBox").style.border = "solid lightgreen 5px";
@@ -95,12 +91,35 @@ function submitGuess() {
             document.getElementById("numOfGuess").innerHTML = "Lives: " + lives;
 
             checkLives();
-            document.getElementById("entryBox").style.border = "solid red 5px";
         }
         checkLives();
     }
 
     
+}
+
+function checkLetters() {
+    let currGuess = document.getElementById("guess" + lives.toString());
+    currGuess.innerHTML = currentGuess.toUpperCase();
+    let newStr = "";
+    for (let i = 0; i < currGuess.innerHTML.length; i++) {
+        if (currGuess.innerHTML.charAt(i) == currentWord.charAt(i)) {
+            newStr += '<span style="color: lightGreen">' + currGuess.innerHTML.charAt(i) + '</span>';
+            document.getElementById(currGuess.innerHTML.charAt(i)).style.backgroundColor = "lightgreen";
+            document.getElementById(currGuess.innerHTML.charAt(i)).style.color = "green";
+        }
+        else if (currentWord.includes(currGuess.innerHTML.charAt(i))) {
+            newStr += '<span style="color: orange">' + currGuess.innerHTML.charAt(i) + '</span>';
+            document.getElementById(currGuess.innerHTML.charAt(i)).style.backgroundColor = "Orange";
+            document.getElementById(currGuess.innerHTML.charAt(i)).style.color = "Red";
+        }
+        else {
+            newStr += '<span style="color: black">' + currGuess.innerHTML.charAt(i) + '</span>';
+            document.getElementById(currGuess.innerHTML.charAt(i)).style.backgroundColor = "rgb(44, 44, 44)";
+            document.getElementById(currGuess.innerHTML.charAt(i)).style.color = "black";
+        }
+    }
+    currGuess.innerHTML = newStr
 }
 
 
@@ -115,9 +134,9 @@ function result(res) {
     if (res) {
         let txt = document.getElementById("headerContainer");
         let kbd = document.getElementById("Keyboard");
-        txt.style.color = "lightGreen"; 
+        txt.style.color = "LimeGreen"; 
         txt.innerHTML = "You Won!";
-        kbd.style.backgroundColor = "lightGreen";
+        kbd.style.backgroundColor = "LimeGreen";
     }
     else {
         let txt = document.getElementById("headerContainer");
