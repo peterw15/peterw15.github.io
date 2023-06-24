@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <head>
     <link rel="stylesheet" href="Stylesheets.css" />
     <script src="Scripts.js"></script>
@@ -8,18 +7,32 @@
 
 <body onload="loadPage()">
     <div class="headerContainer" id="headerContainer">
-        Guess The Five Letter Word!
+        Guess The Five Letter Word! 
     </div>
+
     <div class="letterEntry">
+        
         <div class="entryRow">
         <input id="entryBox" type="text" style="width: 300px; height: 75px; font-size: 60px; text-transform: uppercase;" maxlength="5" onkeyup="updateLetters()">
         </div>
     </div>
 
+    <!--     <div class="helpBox" id="helpBox"> -->
+        
+    <div class="help">
+        <span style="font-family: 'Segoe UI'; font-size: larger; color: Lightgreen; font-weight: 500;">Green = Letter Is In
+            Word In Right Place</span> <br>
+        <span style="font-family: 'Segoe UI'; font-size: larger; color: orange; font-weight: 500;">Orange = Letter Is In
+            Word In Wrong Place</span> <br>
+        <span style="font-family: 'Segoe UI'; font-size: larger; color: black; font-weight: 500;">Black = Letter Is Not
+            Present In Word</span> <br>
+    </div>
+
     <div class="middleContainer">
+
         <div id="numOfGuess">
             Lives: 5
-        </div>
+        </div> 
         <div id="lastGuess">
             Guesses: 
             <div id="guess1"> </div>
@@ -73,8 +86,10 @@
     </div>
 
 
+    
     <div class="btnContainer">
-        <div class="newWordBtn" onclick="loadPage()"> New Word </div>
         <div class="submitBtn" onclick="submitGuess()" id="submitBtn"> Submit </div>
+        <div class="newWordBtn" onclick="loadPage()"> New Word </div>
+
     </div>
 </body>
